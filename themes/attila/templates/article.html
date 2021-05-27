@@ -93,6 +93,7 @@
                 <a href="{{ SITEURL }}/{{ author.url }}">{{ author_name }}</a>
             {% endfor %}
             | <time datetime="{{ article.locale_date }}">{{ article.locale_date }}</time>
+            | {% if article.readtime %} This article takes ~{{article.readtime}} minute(s) to read.{% endif %}
         </span>
         <!-- TODO : Modified check -->
         {% if article.modified %}

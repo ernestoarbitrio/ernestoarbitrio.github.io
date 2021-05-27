@@ -18,7 +18,8 @@ SITE_LOGO = "images/logo/logoEA.png"
 COLOR_SCHEME_CSS = "tomorrow_night.css"
 HEADER_COVERS_BY_TAG = [False]
 HEADER_COVERS_BY_CATEGORY = [False]
-PLUGINS = ["sitemap", "neighbors", "webassets"]
+PLUGINS = ["sitemap", "neighbors", "webassets", "readtime"]
+READTIME_WPM = 180
 HOME_COLOR = "#e3e3e3"
 HOME_COVER = "https://user-images.githubusercontent.com/4196091/119836899-662d0b80-bf02-11eb-8486-f2ea0bac2de1.png"
 AUTHORS_BIO = {
@@ -31,7 +32,7 @@ AUTHORS_BIO = {
         "github": "ernestoarbitrio",
         "location": "Trento",
         "bio": "I'm a senior software backend engineer @ YouGov, python and food passionate!",
-        "cover": HOME_COVER
+        "cover": HOME_COVER,
     }
 }
 # Sitemap
