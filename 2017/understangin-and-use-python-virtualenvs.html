@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Understanding and use python virtualenvs from Data Scientist perspective</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+<link href="https://ernestoarbitrio.github.io/2017/understangin-and-use-python-virtualenvs.html" rel="canonical" />
+  <!-- Feed -->
+
+  <link href="https://ernestoarbitrio.github.io/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="https://ernestoarbitrio.github.io/theme/css/code_blocks/tomorrow_night.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+    <meta name="description" content="A Virtual Environment is a real good way to keep the dependencies required by different projects in separate places, by creating virtual...">
+
+    <meta name="author" content="Ernesto Arbitrio">
+
+    <meta name="tags" content="python">
+    <meta name="tags" content="virtualenvs">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="ernestoarbitrio"/>
+<meta property="og:title" content="Understanding and use python virtualenvs from Data Scientist perspective"/>
+<meta property="og:description" content="A Virtual Environment is a real good way to keep the dependencies required by different projects in separate places, by creating virtual..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://ernestoarbitrio.github.io/2017/understangin-and-use-python-virtualenvs.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-05-14 21:29:33+00:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://ernestoarbitrio.github.io/author/ernesto-arbitrio.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="virtualenvs"/>
+<meta property="og:image" content="https://user-images.githubusercontent.com/4196091/119836899-662d0b80-bf02-11eb-8486-f2ea0bac2de1.png">
+
+<!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@__pamaron__">
+    <meta name="twitter:title" content="Understanding and use python virtualenvs from Data Scientist perspective">
+    <meta name="twitter:url" content="https://ernestoarbitrio.github.io/2017/understangin-and-use-python-virtualenvs.html">
+
+        <meta name="twitter:image:src" content="https://user-images.githubusercontent.com/4196091/119836899-662d0b80-bf02-11eb-8486-f2ea0bac2de1.png">
+
+      <meta name="twitter:description" content="A Virtual Environment is a real good way to keep the dependencies required by different projects in separate places, by creating virtual...">
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Understanding and use python virtualenvs from Data Scientist perspective",
+  "headline": "Understanding and use python virtualenvs from Data Scientist perspective",
+  "datePublished": "2017-05-14 21:29:33+00:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Ernesto Arbitrio",
+    "url": "https://ernestoarbitrio.github.io/author/ernesto-arbitrio.html"
+  },
+  "image": "https://user-images.githubusercontent.com/4196091/119836899-662d0b80-bf02-11eb-8486-f2ea0bac2de1.png",
+  "url": "https://ernestoarbitrio.github.io/2017/understangin-and-use-python-virtualenvs.html",
+  "description": "A Virtual Environment is a real good way to keep the dependencies required by different projects in separate places, by creating virtual..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+          <li><a href="/" role="presentation">Home</a></li>
+          <li><a href="/pages/about.html" role="presentation">About</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span class="blog-logo">
+                <a href="https://ernestoarbitrio.github.io/"><img src="../images/logo/logoEA.png" alt="Blog Logo" /></a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Understanding and use python virtualenvs from Data Scientist perspective</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="https://ernestoarbitrio.github.io/author/ernesto-arbitrio.html">Ernesto Arbitrio</a>
+            | <time datetime="Dom 14 Maggio 2017">Dom 14 Maggio 2017</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('https://user-images.githubusercontent.com/4196091/119836899-662d0b80-bf02-11eb-8486-f2ea0bac2de1.png')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>A Virtual Environment is a real good way to keep the dependencies required by different projects in separate places, by
+creating virtual Python environments for each of them. It solves the “Project X depends on version 1.x but, Project Y
+needs 4.x” dilemma, and keeps your global site-packages directory clean and manageable. For example, you can work on a
+project which requires <tt class="docutils literal">matplotlib 1.5.3</tt> while also maintaining a project which requires <tt class="docutils literal">matplotlib 1.4.2</tt>.</p>
+<p>There are different tools that can manage python virtual environment, those I will show are:</p>
+<blockquote>
+<ul class="simple">
+<li>virtualenv</li>
+<li>anaconda (by continuum analytics)</li>
+</ul>
+</blockquote>
+<p>The first one is the most popular for general pourpose coding projects, anaconda is much more suitable for who works in
+data science field. In this post I would like to explain out how to install and use both of them to create your python virtualenv.</p>
+<div class="section" id="virtualenv">
+<h2>Virtualenv</h2>
+<p>When you run <cite>virtualenv</cite> command inside your shell, it creates a folder which contains all the necessary executables
+to use the packages that a Python project would need.</p>
+<p>To install virtualenv via pip:</p>
+<pre class="code bash literal-block">
+$ pip install virtualenv
+</pre>
+<p>To install python pip via s.o. package manager (ubuntu for instance):</p>
+<pre class="code bash literal-block">
+$ sudo apt-get install python-pip
+</pre>
+<div class="section" id="basic-usage">
+<h3>Basic usage</h3>
+<p>Create a firt virtual environment for your project:</p>
+<pre class="code bash literal-block">
+$ <span class="nb">cd</span> my_venv_dir
+$ virtualenv myproject
+</pre>
+<p><tt class="docutils literal">virtualenv myproject</tt> will create a folder in the directory you are which will contain the Python executable files,
+and a copy of the pip library which you can use to install other packages. Usually I do not create the virtual environment
+within the source code directory in order to keep venv and code separate. In this way I don't need to exclude the virtualenv
+directory from the version control system I will use for software versioning.</p>
+<p>In your virtualenvironment directory you shuold have something like this:</p>
+<pre class="code bash literal-block">
+$ ls -la
+
+drwxr-xr-x  <span class="m">16</span> user  staff  <span class="m">544</span> May <span class="m">15</span> <span class="m">06</span>:33 bin
+drwxr-xr-x   <span class="m">3</span> user  staff  <span class="m">102</span> May <span class="m">15</span> <span class="m">06</span>:30 include
+drwxr-xr-x   <span class="m">4</span> user  staff  <span class="m">136</span> May <span class="m">15</span> <span class="m">06</span>:33 lib
+-rw-r--r--   <span class="m">1</span> user  staff   <span class="m">60</span> May <span class="m">15</span> <span class="m">06</span>:33 pip-selfcheck.json
+</pre>
+<p>You can also use the Python interpreter of your choice (like python2.7).</p>
+<pre class="code bash literal-block">
+$ virtualenv -p /usr/local/bin/python2 myproject
+</pre>
+<p>Naturally you need change the python 2 path with yours.</p>
+<p>To begin using the virtual environment, it needs to be activated:</p>
+<pre class="code bash literal-block">
+$ <span class="nb">source</span> /myproject/bin/activate
+</pre>
+<p>The name of the current virtual environment will now appear as prefix of the prompt
+(e.g. <tt class="docutils literal">$(myproject)username&#64;yourcomputer</tt>) to let you know that it’s active. From now on, any package
+that you install using pip will be placed in the myproject folder, in this way the global Python installation will remain
+clean.</p>
+<p>Install packages as usual:</p>
+<pre class="code bash literal-block">
+$ pip install matplotlib
+</pre>
+<p>If you want to deactivate your virtualenv with:</p>
+<pre class="code bash literal-block">
+$ deactivate
+</pre>
+<p>This puts you back to the system’s default Python interpreter with all its installed libraries.</p>
+<p>To delete a virtual environment, just delete the folder. (In this case, it would be <tt class="docutils literal">rm <span class="pre">-rf</span> myproject</tt>.)</p>
+<p>After a while, though, you might end up with a lot of virtual environments littered across your system,
+and its possible you’ll forget their names or where they were placed.</p>
+</div>
+<div class="section" id="extra-commands">
+<h3>Extra commands</h3>
+<p>In order to keep your environment consistent, it’s a good idea to “freeze” the current state of the environment
+packages. To do this, run</p>
+<pre class="code bash literal-block">
+$ pip freeze &gt; requirements.txt
+</pre>
+<p>This will create a requirements.txt file, which contains a list of all the packages in the current
+environment, and their respective versions. You can see the list of installed packages without the requirements
+format using <tt class="docutils literal">pip list</tt>. Later it will be easier for a different developer (or you, if you need to re-create the
+environment) to install the same packages using the same versions:</p>
+<pre class="code bash literal-block">
+$ pip install -r requirements.txt
+</pre>
+<p>Remember to add the <em>requirements file</em> in your current project directory; this can help ensure consistency across
+installations, across deployments, and across developers.</p>
+<p>Now let's take a look to the packages you need for starting a new virtual environment for data analytics projects. The most used by me
+are: <tt class="docutils literal">numpy</tt>, <tt class="docutils literal">pandas</tt>, <tt class="docutils literal">matplotlib</tt>, <tt class="docutils literal">jupyter notebook</tt>, <tt class="docutils literal">scipy</tt>; naturaly each of you can use those who prefer.</p>
+<p>As you can see in the previous paragraphs to install a python lib in a virtualenv you may use <tt class="docutils literal">pip</tt> command; to install each package
+there are 2 simple ways: install them one by one or create a requirements.txt file with one library per line:</p>
+<pre class="code bash literal-block">
+numpy
+pandas
+matplotlib
+jupyter
+scipy
+</pre>
+<p>or if you want you can specify the version if you want to avoid the installation of the latest stable release of the softwares:</p>
+<pre class="code bash literal-block">
+<span class="nv">numpy</span><span class="o">==</span><span class="m">1</span>.10
+<span class="nv">pandas</span><span class="o">==</span><span class="m">0</span>.18.1
+jupyter
+<span class="nv">matplotlib</span><span class="o">==</span><span class="m">1</span>.5.1
+scipy
+</pre>
+<p>Now <tt class="docutils literal">pip install <span class="pre">-r</span> requirements.txt</tt> will install all your software and the related dependencies; and your data science
+oriented virtualenv is now ready to go.</p>
+</div>
+<div class="section" id="the-anaconda-python-distribution">
+<h3>The Anaconda© <em>python</em> distribution</h3>
+<p>From my personal point of view, a more appropriate way than using virtualenv is to adopt the
+<a class="reference external" href="https://www.continuum.io/downloads">Anaconda</a> platform.
+Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high
+performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for
+data science.</p>
+<p>Additionally, you'll have access to over 720 packages that can easily be installed with conda, our renowned package,
+dependency and environment manager, that is included in Anaconda.</p>
+<p>If you're interesting on &quot;Why should I use Anaconda?&quot; I may suggest you to read:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.continuum.io/why-anaconda">https://www.continuum.io/why-anaconda</a></li>
+<li><a class="reference external" href="https://www.reddit.com/r/Python/comments/3t23vv/what_advantages_are_there_of_using_anaconda/">https://www.reddit.com/r/Python/comments/3t23vv/what_advantages_are_there_of_using_anaconda/</a></li>
+</ul>
+<p>The two principal advantages more useful in my own experience are the user level install of the version of python you want
+and the &quot;<em>batteries included</em>&quot; for data science (e.g. numpy, scipy, PyQt, spyder IDE, etc.)</p>
+<p>Install Anaconda is very simple, just <a class="reference external" href="#">download the rigth package</a> for your O.S. and use the instructions on the
+page to install it in the proper way.</p>
+<p>For instance if you use Linux or Mac OSX:</p>
+<pre class="code bash literal-block">
+bash Anaconda-v-0.x.y.sh
+</pre>
+<p>and follow the instructions on the screen. Note that during the Anaconda installation process it will ask you to add a
+directive in your bash profile to change your default python path. In this way Anaconda python distribution will be your
+new python ecosystem, otherwise if you answer <strong>no</strong> to use the Anaconda python you have to select the python executable
+by hand.</p>
+<p>Now that Anaconda is installed you are able to create a new <em>conda</em> environment or anyway you can use the root env with
+a lot of packages. Let's see how to create a conda env now:</p>
+<pre class="code bash literal-block">
+conda create -n envname
+
+<span class="c1"># if you want to pass a specific python version
+</span>
+conda create -n envname <span class="nv">python</span><span class="o">=</span><span class="m">2</span>.7
+</pre>
+<p>Once the env is created you may activate it</p>
+<pre class="code bash literal-block">
+<span class="nb">source</span> activate envname
+</pre>
+<p>This should procude something like this:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>envname<span class="o">)</span> user@hostname$
+
+<span class="c1"># check your python version</span>
+
+<span class="o">(</span>envname<span class="o">)</span> user@hostname$ python
+Python <span class="m">3</span>.5.2 <span class="p">|</span>Continuum Analytics, Inc.<span class="p">|</span> <span class="o">(</span>default, Jul  <span class="m">2</span> <span class="m">2016</span>, <span class="m">17</span>:52:12<span class="o">)</span>
+<span class="o">[</span>GCC <span class="m">4</span>.2.1 Compatible Apple LLVM <span class="m">4</span>.2 <span class="o">(</span>clang-425.0.28<span class="o">)]</span> on darwin
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+<p>Now, as used with the <cite>virtualenv</cite> tool we can install the packages we need in our conda env with the conda command.</p>
+<pre class="code bash literal-block">
+<span class="o">(</span>envname<span class="o">)</span> user&#64;hostname$ conda install pandas   <span class="c1"># e.g. install pandas package</span>
+</pre>
+<p>Managing the environments is quite easy, there are several options to use with conda command; <a class="reference external" href="#">here a good cheatsheet</a>
+with all the reference you need.</p>
+<p>Remember that Anaconda is batteries included so it's possible you have all the packages you need in the root env.
+Without create or activate any environment try to check the library installed in your conda root instance, you should have
+something like this</p>
+<pre class="code bash literal-block">
+user&#64;hostname$ conda list
+...
+ruamel_yaml               <span class="m">0</span>.11.14                  py35_0
+sasl                      <span class="m">0</span>.2.1                     &lt;pip&gt;
+scikit-image              <span class="m">0</span>.12.3              np111py35_1
+scikit-learn              <span class="m">0</span>.17.1              np111py35_2
+scipy                     <span class="m">0</span>.18.1              np111py35_0
+scp                       <span class="m">0</span>.10.2                    &lt;pip&gt;
+seaborn                   <span class="m">0</span>.7.1                     &lt;pip&gt;
+...
+</pre>
+<p>As you can notice some packages in the previous snippet are installed via <cite>pip</cite>, this means that with anaconda and within any
+conda env you can use also the <cite>pip</cite> command to get the python modules you want.</p>
+</div>
+<div class="section" id="import-and-export-a-conda-environment">
+<h3>Import and Export a conda environment</h3>
+<p>To enable other people to create an exact copy of your environment, you can export the active environment file.</p>
+<p>Activate the environment you wish to export:</p>
+<p><strong>Linux, OS X</strong>: <tt class="docutils literal">source activate envname</tt></p>
+<p><strong>windows</strong>: <tt class="docutils literal">activate envname</tt></p>
+<p>Now export your env to new declarative file:</p>
+<p><tt class="docutils literal">conda env export &gt; environment.yml</tt></p>
+<p>NOTE: If you already have an <em>environment.yml</em> file in you current directory, it will be overwritten with the new file.</p>
+<p>If you instead of exporting your env you want to create a new conda environment from an <strong>.yml</strong> file:</p>
+<p><tt class="docutils literal">conda env create <span class="pre">-f</span> environment.yml</tt></p>
+<p>The enviromnent files can be created by hand just beeing compliant with some basic ruels. For instance if you want to
+set your dependencies these are the rules to follow:</p>
+<pre class="code bash literal-block">
+env_name: stats
+dependencies:
+   - numpy
+   - pandas
+   - scipy
+</pre>
+<p>and then save your file with the name you want. For more details <a class="reference external" href="#">here</a> there is the chapter of the Anaconda guide
+related to this argument.</p>
+<p>Unlike <cite>pip</cite>, <cite>conda</cite> is language-agnostic, this permit you to use the R language in your conda environment, and obviously
+create R based notebooks with jupyter.</p>
+<p>The Anaconda team has created an “R Essentials” bundle with the IRKernel and over 80 of the most used R packages for
+data science, including dplyr, shiny, ggplot2, tidyr,caret and nnet.</p>
+<p>Downloading “R Essentials” requires conda. Miniconda includes conda, Python, and a few other necessary packages,
+while Anaconda includes all this and over 200 of the most popularPython packages for science, math, engineering,
+and data analysis. Users may install all of Anaconda at once, or they may install Miniconda at first and then use
+conda to install any other packages they need, including any of the packages in Anaconda.</p>
+<p>Once you have conda, you may install “R Essentials” into the current environment:</p>
+<pre class="code bash literal-block">
+conda install -c r r-essentials
+</pre>
+<p>and now starting jupyter notebook from your virtual environment <tt class="docutils literal">$ jupyter notebook</tt> you are able to create a new R
+notebook:</p>
+<img alt="Jupyter" src="/images/jupyter_r.png" />
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<p>Part of this post is inspired by:</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="https://www.continuum.io/blog/developer/jupyter-and-conda-r">https://www.continuum.io/blog/developer/jupyter-and-conda-r</a></li>
+<li><a class="reference external" href="http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/">http://python-guide-pt-br.readthedocs.io/en/latest/dev/virtualenvs/</a></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Understanding and use python virtualenvs from Data Scientist perspective&amp;url=https://ernestoarbitrio.github.io/2017/understangin-and-use-python-virtualenvs.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="https://ernestoarbitrio.github.io/tag/python.html">python</a><a href="https://ernestoarbitrio.github.io/tag/virtualenvs.html">virtualenvs</a>                </aside>
+
+                <div class="clear"></div>
+
+                <aside class="post-author">
+
+
+                        <figure class="post-author-avatar">
+                            <img src="https://avatars.githubusercontent.com/u/4196091?v=4" alt="Ernesto Arbitrio" />
+                        </figure>
+                    <div class="post-author-bio">
+                        <h4 class="post-author-name"><a href="https://ernestoarbitrio.github.io/author/ernesto-arbitrio.html">Ernesto Arbitrio</a></h4>
+                            <p class="post-author-about">I'm a senior software backend engineer @ YouGov, python and food passionate!</p>
+                            <span class="post-author-location"><i class="ic ic-location"></i> Trento</span>
+                            <span class="post-author-website"><a href="http://ernestoarbitrio.github.io"><i class="ic ic-link"></i> Website</a></span>
+                        <!-- Social linkes in alphabet order. -->
+                            <span class="post-author-github"><a target="_blank" href="https://github.com/ernestoarbitrio"><i class="ic ic-link"></i> GitHub</a></span>
+                            <span class="post-author-linkedin"><a target="_blank" href="https://www.linkedin.com/in/ernestoarbitrio/"><i class="ic ic-link"></i> LinkedIn</a></span>
+                            <span class="post-author-twitter"><a target="_blank" href="https://twitter.com/__pamaron__"><i class="ic ic-twitter"></i> Twitter</a></span>
+                    </div>
+                    <div class="clear"></div>
+                </aside>
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="https://ernestoarbitrio.github.io/2017/deploy-a-django-application-connected-to-azure-sql-using-docker-and-azure-app-service.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">Deploy a Django application connected to Azure SQL using Docker and Azure App Service</h2>
+                            <p class="post-nav-excerpt">In this post I would like to share my experience during the deployment phase of a...</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ernestoarbitrio.github.io/theme/js/script.js"></script>
+
+</body>
+</html>
