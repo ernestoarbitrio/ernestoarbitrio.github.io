@@ -1,2 +1,2 @@
 # My Personal Blog
-redirect 👉 [ernesto.aribtrio.fyi](ernestoarbitrio.github.io)
+redirect 👉 [ernesto.aribtrio.fyi](ernesto.aribtrio.fyi)
