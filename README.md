@@ -1,2 +1,2 @@
 # My Personal Blog
-redirect 👉 [ernesto.aribtrio.fyi](ernesto.aribtrio.fyi)
+redirect 👉 [ernesto.aribtrio.fyi](https://ernesto.aribtrio.fyi)
